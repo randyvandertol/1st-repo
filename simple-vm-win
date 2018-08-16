@@ -5,7 +5,7 @@
     "adminUsername": {
       "type": "string",
       "metadata": {
-        "description": "Username for the VM."
+        "description": "Username for the Virtual Machine."
       }
     },
     "adminPassword": {
@@ -17,7 +17,7 @@
     "dnsLabelPrefix": {
       "type": "string",
       "metadata": {
-        "description": "-----Unique DNS Name for the Public IP used to access the Virtual Machine."
+        "description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
       }
     },
     "windowsOSVersion": {
