@@ -1,5 +1,6 @@
 # RvdT - 05-09-2018
 # Add / replace all tags within a specific resource group name
+#changed at 07-09
 
 $resourceGroupName = 'define resource group name'
 
