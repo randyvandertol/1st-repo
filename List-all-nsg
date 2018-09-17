@@ -1,6 +1,7 @@
 # RvdT - 17-09-2018
 # LIST all NSG rules in Subscription
 # Creates a file per network security group in c:\tmp
+# ..
 
 $nsgs = Get-AzureRmNetworkSecurityGroup
 $exportPath = 'C:\tmp'
