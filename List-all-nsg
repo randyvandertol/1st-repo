@@ -1,0 +1,18 @@
+# RvdT - 17-09-2018
+# LIST all NSG rules in Subscription
+# Creates a file per network security group in c:\tmp
+
+$nsgs = Get-AzureRmNetworkSecurityGroup
+$exportPath = 'C:\tmp'
+Foreach ($nsg in $nsgs) {
+    $nsgRules = $nsg.SecurityRules
+    foreach ($nsgRule in $nsgRules) {
+        $nsgRule | Select-Object Name,Description,Priority,
+                                 @{n="SourceAddressPrefix";e={$_.SourceAddressPrefix -join ","}},
+                                 @{n="SourcePortRange";e={$_.SourcePortRange -join ","}},
+                                 @{n="DestinationAddressPrefix";e={$_.DestinationAddressPrefix -join ","}},
+                                 @{n="DestinationPortRange";e={$_.DestinationPortRange -join ","}},
+                                 Protocol,Access,Direction |
+         Export-Csv "$exportPath\$($nsg.Name).csv" -NoTypeInformation -Encoding ASCII -Append
+    }
+}   
